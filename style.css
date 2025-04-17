@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    width: 100%;
+    background: #ffffff10;
+    backdrop-filter: blur(10px);
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-container h1 {
+    font-size: 24px;
+    color: #ffd700;
+}
+
+.wallet-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#walletAddress {
+    background: #ffffff20;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#gsomniaStatus {
+    font-size: 14px;
+}
+
+/* Main Section */
+main {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Screens */
+#startScreen, #pauseScreen, #gameOverScreen {
+    background: #ffffff20;
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+}
+
+#startScreen h2, #pauseScreen h2, #gameOverScreen h2 {
+    margin-bottom: 20px;
+    color: #ffd700;
+}
+
+#startScreen p, #finalScore {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* Game Container */
+#gameContainer {
+    background: #000;
+    border: 5px solid #ffd700;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #ffffff20;
+    color: #fff;
+}
+
+#score, #levelDisplay {
+    font-size: 18px;
+}
+
+/* Canvas */
+#gameCanvas {
+    display: block;
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.modal-content {
+    background: #ffffff20;
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #ffd700;
+}
+
+#transactionHash, #transactionHashDisplay {
+    margin-top: 10px;
+    font-size: 14px;
+    word-wrap: break-word;
+    color: #ccc;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    background: linear-gradient(to right, #ff6f61, #de1d23);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(to right, #de1d23, #ff6f61);
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background: #555;
+    cursor: not-allowed;
+}
+
+#pauseButton {
+    background: linear-gradient(to right, #00c4b4, #007bff);
+}
+
+#pauseButton:hover {
+    background: linear-gradient(to right, #007bff, #00c4b4);
+}
