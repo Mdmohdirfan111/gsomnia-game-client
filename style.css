@@ -228,4 +228,48 @@ main {
     font-weight: 700;
 }
 
-#transactionHash, #transaction
+#transactionHash, #transactionHashDisplay {
+    margin-top: 15px;
+    font-size: 14px;
+    word-wrap: break-word;
+    color: #ccc;
+    background: #00000040;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Buttons */
+button {
+    padding: 12px 25px;
+    margin: 8px;
+    background: linear-gradient(135deg, #ff6f61, #de1d23);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 111, 97, 0.5);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #de1d23, #ff6f61);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 111, 97, 0.8);
+}
+
+button:disabled {
+    background: #555;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#pauseButton {
+    background: linear-gradient(135deg, #00c4b4, #007bff);
+}
+
+#pauseButton:hover {
+    background: linear-gradient(135deg, #007bff, #00c4b4);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.8);
+}
