@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zabardast Poll & Message DApp</title>
+  <!-- Bootstrap for styling -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Ethers.js v6 -->
+  <script src="https://cdn.ethers.io/lib/ethers-6.13.2.umd.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+      max-width: 700px;
+    }
+    .btn-primary {
+      background: #ff6f61;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+    .btn-primary:hover {
+      transform: scale(1.1);
+      background: #ff3d2e;
+    }
+    .btn-success {
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    .info {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #00ffcc;
+    }
+    .form-control {
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+    .error-message {
+      color: #ff4444;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .spinner-border {
+      display: none;
+      margin-left: 10px;
+    }
+    .poll-results, .message-history {
+      margin-top: 20px;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .message-history ul {
+      list-style: none;
+      padding: 0;
+    }
+    .message-history li {
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔥 Zabardast Poll & Message DApp 🔥</h1>
+    <button id="connectWallet" class="btn btn-primary">
+      Connect Wallet
+      <span class="spinner-border spinner-border-sm" id="connectSpinner"></span>
+    </button>
+    <div id="walletAddress" class="info">Not Connected</div>
+    <div id="networkInfo" class="info">Network: Unknown</div>
+    <div id="errorMessage" class="error-message"></div>
+
+    <!-- Poll System Section -->
+    <h3 class="mt-4">📊 Poll System</h3>
+    <input id="pollQuestion" class="form-control" placeholder="Poll Question (e.g., Best Crypto?)">
+    <input id="pollOptions" class="form-control" placeholder="Options (comma-separated, e.g., BTC,ETH)">
+    <button id="createPoll" class="btn btn-success mt-2">Create Poll</button>
+    <input id="pollId" class="form-control mt-2" placeholder="Poll ID to Vote">
+    <input id="voteOption" class="form-control" placeholder="Option to Vote (e.g., BTC)">
+    <button id="votePoll" class="btn btn-success mt-2">Vote</button>
+    <div id="pollInfo" class="info">Poll Status: Not Connected</div>
+    <div id="pollResults" class="poll-results" style="display: none;">
+      <h5>Poll Results</h5>
+      <div id="pollResultsContent"></div>
+    </div>
+
+    <!-- GM Sender Section -->
+    <h3 class="mt-4">💬 GM Sender</h3>
+    <input id="message" class="form-control" placeholder="Message (e.g., GM Everyone!)">
+    <button id="sendMessage" class="btn btn-success mt-2">Send Message</button>
+    <div id="messageInfo" class="info">Message Status: Not Connected</div>
+    <div id="messageHistory" class="message-history" style="display: none;">
+      <h5>Message History</h5>
+      <ul id="messageHistoryList"></ul>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
