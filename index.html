@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Blockchain Adventure</title>
+    <title>Somnia Mario</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.5/web3.min.js"></script>
 </head>
@@ -11,22 +11,32 @@
     <!-- Header Section -->
     <header>
         <div class="header-container">
-            <h1>Super Blockchain Adventure</h1>
+            <h1>Somnia Mario</h1>
             <div class="wallet-controls">
                 <button id="connectWalletButton">Connect Wallet</button>
                 <span id="walletAddress" style="display: none;"></span>
                 <button id="gsomniaButton" style="display: none;" disabled>Execute Gsomnia</button>
                 <span id="gsomniaStatus" style="display: none;"></span>
             </div>
+            <div class="social-links">
+                <a href="https://x.com/Somnia_Network" target="_blank">Follow Somnia on X</a>
+                <a href="https://x.com/Irrfan_eth" target="_blank">Follow Irfan on X</a>
+            </div>
         </div>
     </header>
 
     <!-- Main Game Section -->
     <main>
+        <!-- Instructions and Testnet Message -->
+        <div class="game-info">
+            <p class="instructions">Space to Jump, Right to Move Right</p>
+            <p class="testnet-message">Switch to Somnia Testnet</p>
+        </div>
+
         <!-- Start Screen -->
         <div id="startScreen">
-            <h2>Welcome to the Adventure!</h2>
-            <p>Connect your wallet to start the game.</p>
+            <h2>Welcome to Somnia Mario!</h2>
+            <p>Connect your wallet to start the adventure.</p>
             <button id="startButton" style="display: none;">Start Game</button>
         </div>
 
