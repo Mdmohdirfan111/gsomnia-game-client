@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Somnia Mario</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/coin.png" type="image/png"> <!-- Favicon -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.5/web3.min.js"></script>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="spinner"></div>
+        <p>Loading Somnia Mario...</p>
+    </div>
+
     <!-- Header Section -->
     <header>
         <div class="header-container">
@@ -34,14 +41,14 @@
         </div>
 
         <!-- Start Screen -->
-        <div id="startScreen">
+        <div id="startScreen" class="screen">
             <h2>Welcome to Somnia Mario!</h2>
             <p>Connect your wallet to start the adventure.</p>
             <button id="startButton" style="display: none;">Start Game</button>
         </div>
 
         <!-- Game Container -->
-        <div id="gameContainer" style="display: none;">
+        <div id="gameContainer" class="screen" style="display: none;">
             <div class="game-header">
                 <span id="score">Score: 0</span>
                 <span id="levelDisplay">Level: 1</span>
@@ -51,13 +58,13 @@
         </div>
 
         <!-- Pause Screen -->
-        <div id="pauseScreen" style="display: none;">
+        <div id="pauseScreen" class="screen" style="display: none;">
             <h2>Game Paused</h2>
             <button id="resumeButton">Resume</button>
         </div>
 
         <!-- Game Over Screen -->
-        <div id="gameOverScreen" style="display: none;">
+        <div id="gameOverScreen" class="screen" style="display: none;">
             <h2>Game Over</h2>
             <p id="finalScore"></p>
             <button id="restartButton">Restart</button>
@@ -83,6 +90,42 @@
         </div>
     </main>
 
+    <!-- Footer Section -->
+    <footer>
+        <p>Developed by Irfan | Powered by <a href="https://somnia.network" target="_blank">Somnia</a></p>
+    </footer>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="music-control">
+        <button id="musicButton">Mute Music</button>
+    </div>
+
     <script src="game.js"></script>
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.display = 'none';
+            }, 2000); // Show loading screen for 2 seconds
+        });
+
+        // Background Music Control
+        const music = document.getElementById('backgroundMusic');
+        const musicButton = document.getElementById('musicButton');
+        music.play();
+        musicButton.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+                musicButton.textContent = 'Mute Music';
+            } else {
+                music.pause();
+                musicButton.textContent = 'Unmute Music';
+            }
+        });
+    </script>
 </body>
 </html>
