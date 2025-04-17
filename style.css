@@ -26,9 +26,9 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.3)"/></svg>') repeat;
-    animation: particleMove 20s linear infinite;
-    opacity: 0.2;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.2)"/></svg>') repeat;
+    animation: particleMove 30s linear infinite;
+    opacity: 0.15;
     pointer-events: none;
 }
 
@@ -37,8 +37,44 @@ body::before {
         background-position: 0 0;
     }
     100% {
-        background-position: 100px 100px;
+        background-position: 50px 50px;
     }
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ffeb3b;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-screen p {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ffeb3b;
+    text-shadow: 0 0 10px #ffeb3b80;
 }
 
 /* Header Styling */
@@ -97,7 +133,7 @@ header {
 .social-links a {
     color: #ffeb3b;
     text-decoration: none;
-    font-size: 18px; /* Increased font size */
+    font-size: 18px;
     font-weight: 600;
     transition: color 0.3s, text-shadow 0.3s;
     text-shadow: 0 0 10px #ffeb3b80;
@@ -110,13 +146,14 @@ header {
 
 /* Game Info Section (Instructions & Testnet Message) */
 .game-info {
-    margin-top: 150px; /* Shifted downwards */
+    position: absolute;
+    top: 70%; /* Shifted further down */
     text-align: center;
-    margin-bottom: 30px;
+    z-index: 5;
 }
 
 .instructions {
-    font-size: 28px; /* Increased font size */
+    font-size: 28px;
     color: #00e5ff;
     text-shadow: 0 0 15px #00e5ff80;
     margin-bottom: 15px;
@@ -124,7 +161,7 @@ header {
 }
 
 .testnet-message {
-    font-size: 24px; /* Increased font size */
+    font-size: 24px;
     color: #ff6f61;
     text-shadow: 0 0 15px #ff6f6180;
     font-weight: 600;
@@ -132,16 +169,21 @@ header {
 
 /* Main Section */
 main {
-    margin-top: 200px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100vh;
     padding: 20px;
+    position: relative;
 }
 
-/* Screens */
-#startScreen, #pauseScreen, #gameOverScreen {
+/* Centered Screens */
+.screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #ffffff15;
     backdrop-filter: blur(15px);
     padding: 40px;
@@ -151,6 +193,7 @@ main {
     max-width: 500px;
     width: 90%;
     border: 2px solid #ffeb3b40;
+    z-index: 10;
 }
 
 #startScreen h2, #pauseScreen h2, #gameOverScreen h2 {
@@ -173,6 +216,8 @@ main {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    width: 100%;
 }
 
 .game-header {
@@ -272,4 +317,42 @@ button:disabled {
 #pauseButton:hover {
     background: linear-gradient(135deg, #007bff, #00c4b4);
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.8);
+}
+
+/* Music Control */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+#musicButton {
+    background: linear-gradient(135deg, #ffeb3b, #ff6f61);
+    box-shadow: 0 4px 15px rgba(255, 235, 59, 0.5);
+}
+
+#musicButton:hover {
+    background: linear-gradient(135deg, #ff6f61, #ffeb3b);
+    box-shadow: 0 6px 20px rgba(255, 235, 59, 0.8);
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    color: #ccc;
+    font-size: 14px;
+}
+
+footer a {
+    color: #ffeb3b;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #00e5ff;
 }
